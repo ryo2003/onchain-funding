@@ -81,6 +81,12 @@ contract FundPortal {
             campaign.completed
         );
     }
+
+    //sending eth to the beneficiary
+    function sendEther(address payable recipient) public payable {
+        require(msg.value > 0, "Amount must be greater than zero.");
+        recipient.transfer(msg.value);
+    }
 }
 
 /*
